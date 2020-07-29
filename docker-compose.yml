@@ -1,6 +1,6 @@
-version: '1'
+version: '3'
 services:
-  adaGateway:
+  ada_gateway:
     build:
       context: ./api
       dockerfile: Dockerfile
@@ -9,8 +9,6 @@ services:
     depends_on:
       - redis
     restart: always
-    links:
-      - redis
   worker:
     build:
       context: celery-queue
