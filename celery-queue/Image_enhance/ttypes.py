@@ -23,6 +23,7 @@ class ImageData:
    - name
    - data
    - ID
+   - option
   """
 
   thrift_spec = (
@@ -30,12 +31,14 @@ class ImageData:
     (1, TType.STRING, 'name', None, None, ), # 1
     (2, TType.STRING, 'data', None, None, ), # 2
     (3, TType.STRING, 'ID', None, None, ), # 3
+    (4, TType.STRING, 'option', None, None, ), # 4
   )
 
-  def __init__(self, name=None, data=None, ID=None,):
+  def __init__(self, name=None, data=None, ID=None, option=None,):
     self.name = name
     self.data = data
     self.ID = ID
+    self.option = option
 
   def read(self, iprot):
     if iprot.__class__ == TBinaryProtocol.TBinaryProtocolAccelerated and isinstance(iprot.trans, TTransport.CReadableTransport) and self.thrift_spec is not None and fastbinary is not None:
@@ -61,6 +64,11 @@ class ImageData:
           self.ID = iprot.readString()
         else:
           iprot.skip(ftype)
+      elif fid == 4:
+        if ftype == TType.STRING:
+          self.option = iprot.readString()
+        else:
+          iprot.skip(ftype)
       else:
         iprot.skip(ftype)
       iprot.readFieldEnd()
@@ -83,6 +91,10 @@ class ImageData:
       oprot.writeFieldBegin('ID', TType.STRING, 3)
       oprot.writeString(self.ID)
       oprot.writeFieldEnd()
+    if self.option is not None:
+      oprot.writeFieldBegin('option', TType.STRING, 4)
+      oprot.writeString(self.option)
+      oprot.writeFieldEnd()
     oprot.writeFieldStop()
     oprot.writeStructEnd()
 
@@ -93,6 +105,8 @@ class ImageData:
       raise TProtocol.TProtocolException(message='Required field data is unset!')
     if self.ID is None:
       raise TProtocol.TProtocolException(message='Required field ID is unset!')
+    if self.option is None:
+      raise TProtocol.TProtocolException(message='Required field option is unset!')
     return
 
 
@@ -101,6 +115,7 @@ class ImageData:
     value = (value * 31) ^ hash(self.name)
     value = (value * 31) ^ hash(self.data)
     value = (value * 31) ^ hash(self.ID)
+    value = (value * 31) ^ hash(self.option)
     return value
 
   def __repr__(self):

@@ -1,4 +1,0 @@
-Flask==1.1.2
-celery==3.1.25
-Flask_Bootstrap==3.3.7.1
-config==0.5.0.post0

@@ -16,8 +16,8 @@ from thrift.transport import TSSLSocket
 from thrift.transport import THttpClient
 from thrift.protocol import TBinaryProtocol
 
-from Image_enhance import ImageUploadService
-from Image_enhance.ttypes import *
+from Image_enhance(1) import ImageUploadService
+from Image_enhance(1).ttypes import *
 
 if len(sys.argv) <= 1 or sys.argv[1] == '--help':
   print('')
