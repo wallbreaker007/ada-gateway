@@ -22,8 +22,8 @@ CELERY_BROKER_URL = os.environ.get('CELERY_BROKER_URL', 'redis://localhost:6379'
 CELERY_RESULT_BACKEND = os.environ.get('CELERY_RESULT_BACKEND', 'redis://localhost:6379')
 
 ALIYUN_END_POINT = os.environ.get('ALIYUN_END_POINT', 'http://oss-cn-hangzhou.aliyuncs.com')
-ALIYUN_ACCESS_KEY = os.environ.get('ALIYUN_ACCESS_KEY', 'LTAI4GFfg1CGXXcPLFuEmNoE')
-ALIYUN_SECRET = os.environ.get('ALIYUN_SECRET', 'GXqXK7cyG1WzX6VGVZiAHChxmt5uA3')
+ALIYUN_ACCESS_KEY = os.environ.get('ALIYUN_ACCESS_KEY', '*')
+ALIYUN_SECRET = os.environ.get('ALIYUN_SECRET', '*')
 ALIYUN_BUCKET_NAME = os.environ.get('ALIYUN_BUCKET_NAME', 'adacloud')
 ALIYUN_OSS_IMAGE_SIZE = os.environ.get('ALIYUN_OSS_IMAGE_SIZE', 256)
 
