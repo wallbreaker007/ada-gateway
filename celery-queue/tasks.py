@@ -61,7 +61,7 @@ def download(left_top_y, left_top_x, right_bottom_y, right_bottom_x, z):
     img_bytes = img_bytes.getvalue()
 
     total_name = '{z}_{lt_y}_{lt_x}_{rb_y}_{rb_x}.jpg'.format(z=z, lt_y=left_top_y, lt_x=left_top_x, rb_y=right_bottom_y, rb_x=right_bottom_x)
-    thrift_byte = ImageData(total_name, img_bytes, '')
+    thrift_byte = ImageData(total_name, img_bytes, ID='', option='0')
 
     transport = TSocket.TSocket(ADASPACE_IMAGE_ENHANCE_SERVICE_END_POINT, ADASPACE_IMAGE_ENHANCE_SERVICE_PORT)
     transport = TTransport.TFramedTransport(transport)
@@ -91,8 +91,8 @@ def download(left_top_y, left_top_x, right_bottom_y, right_bottom_x, z):
             t_img_bytes = io.BytesIO()
             t_image.save(t_img_bytes, format='JPEG')
             t_img_bytes = t_img_bytes.getvalue()
-            t_object_location = object_update_location.format(z=18, y=y_update, x=x_update)
+            t_object_location = object_update_location.format(z=z, y=y_update, x=x_update)
             bucket_update.put_object(t_object_location, t_img_bytes)
 
-    # bucket_update.put_object_from_file('test.jpg', 'test.jpg')
+    #TODO, define some operation states
     return 'Succeess'
