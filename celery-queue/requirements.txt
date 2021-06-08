@@ -1,4 +1,4 @@
 oss2==2.12.1
 celery==3.1.25
 thrift==0.9.3
-Pillow==7.2.0
+Pillow==8.2.0
